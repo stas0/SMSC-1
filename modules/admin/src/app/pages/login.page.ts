@@ -53,13 +53,13 @@ export class LoginPage {
     login() {
         let ptor = protractor.wrapDriver(browser.driver);
 
-        ptor.wait(protractor.until.elementLocated(by.css('.username input')), 5000)
+        return ptor.wait(protractor.until.elementLocated(by.css('.username input')), 5000)
             .then(function (el: webdriver.IWebElement) {
                 el.sendKeys('admin');
-                ptor.wait(protractor.until.elementLocated(by.css('.password input')), 5000)
+                return ptor.wait(protractor.until.elementLocated(by.css('.password input')), 5000)
                     .then(function (elem: webdriver.IWebElement) {
                         elem.sendKeys('admin');
-                        ptor.wait(protractor.until.elementLocated(by.id('submitButton')), 5000)
+                        return ptor.wait(protractor.until.elementLocated(by.id('submitButton')), 5000)
                             .then(function (element: webdriver.IWebElement) {
                                 element.submit();
                             });

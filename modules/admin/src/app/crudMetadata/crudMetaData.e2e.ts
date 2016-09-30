@@ -12,22 +12,29 @@ describe('CrudMetaData', () => {
 
     it('log in smsc.io', () => {
         crudMetaDataPage.get();
-        crudMetaDataPage.login.login();
-        expect(crudMetaDataPage.isPresentLogo()).toBeTruthy();
+        crudMetaDataPage.login.login()
+            .then(() => {
+                expect(crudMetaDataPage.isPresentLogo()).toBeTruthy();
+            });
     });
 
     it('should navigate to the customer', () => {
-        crudMetaDataPage.clickOnCustomers();
-        expect(crudMetaDataPage.isPresentCustomers()).toBeTruthy();
+        crudMetaDataPage.clickOnCustomers()
+            .then(() => {
+                expect(crudMetaDataPage.isPresentCustomers()).toBeTruthy();
+            });
     });
 
     it('should navigate to the create', () => {
         let width = 1980,
             height = 1020;
-        ptor.manage().window().setSize(width, height);
-
-        crudMetaDataPage.clickOnBtnAddRecord();
-        expect(crudMetaDataPage.isPresentCrudCreateTag()).toBeTruthy();
+        ptor.manage().window().setSize(width, height)
+            .then(() => {
+                crudMetaDataPage.clickOnBtnAddRecord()
+                    .then(() => {
+                        expect(crudMetaDataPage.isPresentCrudCreateTag()).toBeTruthy();
+                    });
+            });
     });
 
     it('readonly should be false', () => {
@@ -49,34 +56,48 @@ describe('CrudMetaData', () => {
     });
 
     it('should navigate to the formMetaData', () => {
-        crudMetaDataPage.clickOnMetaData();
-        crudMetaDataPage.clickOnFormMetaData();
-        expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+        crudMetaDataPage.clickOnMetaData()
+            .then(() => {
+                crudMetaDataPage.clickOnFormMetaData()
+                    .then(() => {
+                        expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+                    });
+            });
     });
 
     it('should navigate to the formMetaData', () => {
-        crudMetaDataPage.clickOnFormMetaData();
-        expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+        crudMetaDataPage.clickOnFormMetaData()
+            .then(() => {
+                expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+            });
     });
 
     it('should be change visible property', () => {
-        crudMetaDataPage.hideProperty();
-        expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+        crudMetaDataPage.hideProperty()
+            .then(() => {
+                expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+            });
     });
 
     it('should be change editable and order properties', () => {
-        crudMetaDataPage.orderReadonlyProperty('3');
-        expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+        crudMetaDataPage.orderReadonlyProperty('3')
+            .then(() => {
+                expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+            });
     });
 
     it('should navigate to the customer', () => {
-        crudMetaDataPage.clickOnCustomers();
-        expect(crudMetaDataPage.isPresentCustomers()).toBeTruthy();
+        crudMetaDataPage.clickOnCustomers()
+            .then(() => {
+                expect(crudMetaDataPage.isPresentCustomers()).toBeTruthy();
+            });
     });
 
     it('should navigate to the create', () => {
-        crudMetaDataPage.clickOnBtnAddRecord();
-        expect(crudMetaDataPage.isPresentCrudCreateTag()).toBeTruthy();
+        crudMetaDataPage.clickOnBtnAddRecord()
+            .then(() => {
+                expect(crudMetaDataPage.isPresentCrudCreateTag()).toBeTruthy();
+            });
     });
 
     it('readonly should be true', () => {
@@ -101,18 +122,24 @@ describe('CrudMetaData', () => {
     });
 
     it('should navigate to the formMetaData', () => {
-        crudMetaDataPage.clickOnFormMetaData();
-        expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+        crudMetaDataPage.clickOnFormMetaData()
+            .then(() => {
+                expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+            });
     });
 
     it('should be change visible property', () => {
-        crudMetaDataPage.hideProperty();
-        expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+        crudMetaDataPage.hideProperty()
+            .then(() => {
+                expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+            });
     });
 
     it('should be change editable and order properties', () => {
-        crudMetaDataPage.orderReadonlyProperty('1');
-        expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+        crudMetaDataPage.orderReadonlyProperty('1')
+            .then(() => {
+                expect(crudMetaDataPage.isPresentFormMetaData()).toBeTruthy();
+            });
     });
 
     it('should logout', () => {
