@@ -35,26 +35,19 @@ export class CrudPage {
     }
 
     deleteRecordsOnSecondLevel() {
-        return new Promise((resolve, reject) => {
-            this.clickOnBtnAddRecord()
-                .then(() => {
-                    this.crudCreate.clickOnContactsLinksetBtn()
-                        .then(() => {
-                            this.crudCreate.clickOnSelectAll()
-                                .then(() => {
-                                    this.clickOnDeleteButton()
-                                        .then(() => {
-                                            this.crudDelete.clickOnOkBtn()
-                                                .then((res) => {
-                                                    resolve(res);
-                                                }, err => {
-                                                    reject(err);
-                                                });
-                                        });
-                                });
-                        });
-                });
-        });
+        return this.clickOnBtnAddRecord()
+            .then(() => {
+                return this.crudCreate.clickOnContactsLinksetBtn()
+                    .then(() => {
+                        return this.crudCreate.clickOnSelectAll()
+                            .then(() => {
+                                return this.clickOnDeleteButton()
+                                    .then(() => {
+                                        this.crudDelete.clickOnOkBtn();
+                                    });
+                            });
+                    });
+            });
     }
 
     isEnabledDeleteButton() {
