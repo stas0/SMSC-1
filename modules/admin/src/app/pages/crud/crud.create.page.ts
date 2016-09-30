@@ -3,7 +3,7 @@ import { InputElement } from '../model/inputElement';
 import { Observable } from "rxjs";
 export class CreatePage {
     public hint = element(by.css('.companyName md-hint'));
-    public selectAll = by.id('select-all');
+    public selectAll = by.css('.ag-body-container > div:first-of-type .ag-selection-checkbox');
     public addLinkBtn = by.id('addLink');
     public btnAddRecord = by.id('addRow');
     public formBtn = by.id('modify');
