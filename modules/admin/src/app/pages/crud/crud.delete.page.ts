@@ -14,7 +14,7 @@ export class DeletePage {
         return this.crudDelete.isPresent();
     }
 
-    clickOnOkBtn(): Promise<any> {
+    clickOnOkBtn(): webdriver.promise.Promise<void> {
         return this._ptor.wait(protractor.until.elementLocated(this.okBtn), 5000)
             .then((el: webdriver.IWebElement) => {
                 return Promise.resolve(el.click());
